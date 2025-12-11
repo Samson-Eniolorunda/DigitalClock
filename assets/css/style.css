@@ -1,107 +1,184 @@
 /* ================================
    DIGITAL CLOCK - STYLESHEET
+   Author: Samson Eniolorunda
+   Created: December 2025
    ================================ */
 
-/* Reset default styles */
+/* CSS Variables */
+:root {
+  --bg-main: radial-gradient(circle at top, #00bcd4 0%, #000000 55%, #111111 100%);
+  --card-bg: #000000;
+  --border-color: #ffc107;
+  --title-color: #ffc107;
+  --date-color: #e0f7fa;
+  --digit-color: #ffeb3b;
+  --digit-hover: #00c8ff;
+  --footer-text: #cccccc;
+  --footer-link: #ffc107;
+  --footer-link-hover: #00c8ff;
+}
+
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styles */
+/* Body */
 body {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: "Orbitron", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 600;
-  font-style: normal;
-  background: radial-gradient(circle at top, #00bcd4 0%, #000000 55%, #111111 100%);
-  color: #fefefe;
+  background: var(--bg-main);
+  color: var(--date-color);
 }
 
-/* Clock container */
+/* Clock Title */
+.clock-title {
+  font-family: "orbitron", sans-serif;
+  font-weight: 900;
+  font-size: 36px;
+  margin-bottom: 12px;
+  letter-spacing: 4px;
+  color: var(--title-color);
+  text-transform: uppercase;
+}
+
+/* Clock Container */
 .clock-container {
+  position: relative;
   text-align: center;
   padding: 30px 50px;
   border-radius: 20px;
-  background: #000000;
-  border: 2px solid #ffc107; /* yellow border */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
-  max-width: 480px;
-  width: 90%;
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  max-width: 530px;
+  width: 100%;
+  overflow: hidden;
+  animation: popIn 0.6s ease-out;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Title */
-.clock-title {
-  margin-bottom: 15px;
-  font-size: 24px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: #ffc107; /* yellow */
-  text-shadow: 0 0 8px rgba(255, 193, 7, 0.8);
+/* Controls Row */
+.controls-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
 }
 
-/* Date display */
-#date {
-  margin-bottom: 15px;
-  font-size: 16px;
-  letter-spacing: 1px;
-  color: #e0f7fa; /* soft teal that works with black/yellow */
-  text-shadow: 0 0 6px rgba(0, 188, 212, 0.7);
+/* Timezone and Format Wrappers */
+.timezone-wrapper,
+.format-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: var(--date-color);
 }
 
-/* Time display */
-#clock {
-  font-size: 52px;
-  font-weight: 700;
-  letter-spacing: 6px;
-  color: #ffeb3b; /* bright yellow for digits */
-  text-shadow:
-    0 0 10px rgba(255, 235, 59, 0.9),
-    0 0 20px rgba(255, 235, 59, 0.7),
-    0 0 30px rgba(255, 235, 59, 0.5);
-  transition: transform 0.15s ease, text-shadow 0.15s ease;
+/* Select Dropdowns */
+#timezone-select,
+#format-select {
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--date-color);
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
 }
 
-/* Hover & active effects for a subtle interaction */
-.clock-container:hover #clock {
-  transform: scale(1.03);
-  text-shadow:
-    0 0 12px rgba(255, 235, 59, 1),
-    0 0 26px rgba(255, 193, 7, 0.8),
-    0 0 40px rgba(255, 193, 7, 0.6);
-}
-
-/* Small decorative line */
+/* Divider */
 .clock-divider {
   width: 60px;
   height: 3px;
-  margin: 0 auto 15px auto;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #ffc107, #00bcd4);
+  margin: 15px auto;
+  border-radius: 1000px;
+  background: var(--border-color);
 }
 
-/* Responsive design */
+/* Date Display */
+#date {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: var(--date-color);
+}
+
+/* Clock Display */
+#clock {
+  font-size: 52px;
+  letter-spacing: 6px;
+  color: var(--digit-color);
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+/* Hover Effects */
+#timezone-select:hover,
+#format-select:hover {
+  border-color: var(--digit-hover);
+}
+
+/* Hover Effects for Clock Container */
+.clock-container:hover {
+  border-color: var(--digit-hover);
+  box-shadow: 0 0 18px rgba(0, 200, 255, 0.35);
+}
+.clock-container:hover #clock {
+  color: var(--digit-hover);
+  text-shadow: 0 0 8px rgba(0, 200, 255, 0.6);
+}
+
+/* Responsive Design */
 @media (max-width: 600px) {
-  .clock-container {
-    padding: 20px 25px;
-  }
+  .clock-container { padding: 20px; }
+  .clock-title { font-size: 20px; letter-spacing: 3px; }
+  #clock { font-size: 40px; letter-spacing: 4px; }
+  #date { font-size: 14px; }
+}
 
-  .clock-title {
-    font-size: 20px;
-    letter-spacing: 3px;
-  }
+/* Pop-in Animation */
+@keyframes popIn {
+  0% { transform: scale(0.85); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
 
-  #date {
-    font-size: 14px;
-  }
+/* Scrollbar Styling */
+#timezone-select::-webkit-scrollbar {
+  width: 8px;
+}
+#timezone-select::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 999px;
+}
+#timezone-select::-webkit-scrollbar-thumb:hover {
+  background: var(--digit-hover);
+}
 
-  #clock {
-    font-size: 40px;
-    letter-spacing: 4px;
-  }
+/* Footer */
+.clock-footer {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: var(--footer-text);
+  font-family: "Poppins", sans-serif;
+}
+.clock-footer a {
+  color: var(--footer-link);
+  font-weight: 600;
+  text-decoration: none;
+}
+.clock-footer a:hover {
+  color: var(--footer-link-hover);
 }

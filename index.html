@@ -4,67 +4,75 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <!-- Page Title -->
+    
     <title>Digital Clock</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 
-    <!-- Google Font: Orbitron -->
+    <!-- Google Font: Orbitron (Clock Display) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet" />
+
+    <!-- Google Font: Poppins (Selectors) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
-      rel="stylesheet"
-    />
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
 
-    <!-- Main stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <!-- Start with theme-1 -->
-  <body class="theme-1">
-    <main class="clock-container" aria-label="Digital clock with date">
-      <h1 class="clock-title">Digital Clock</h1>
 
-      <!-- Timezone selector -->
-      <div class="timezone-wrapper">
-        <span class="timezone-label">Timezone:</span>
-        <select id="timezone-select" aria-label="Select timezone">
-          <option value="local">Local System Time</option>
-          <option value="Africa/Lagos">Africa / Lagos</option>
-          <option value="Europe/London">Europe / London</option>
-          <option value="America/New_York">America / New York</option>
-          <option value="Europe/Paris">Europe / Paris</option>
-          <option value="Asia/Tokyo">Asia / Tokyo</option>
-          <option value="Asia/Dubai">Asia / Dubai</option>
-        </select>
+  <body>
+    <!-- TITLE -->
+    <h1 class="clock-title">Digital Clock</h1>
+    
+    <!-- CLOCK CONTAINER -->
+    <main class="clock-container" aria-label="Digital clock with date">
+
+      <!-- TIMEZONE + FORMAT-->
+      <div class="controls-row">
+
+        <div class="timezone-wrapper">
+          <span class="timezone-label">Timezone:</span>
+          <select id="timezone-select" aria-label="Select timezone">
+            <option value="local">Local System Time</option>
+          </select>
+        </div>
+
+        <div class="format-wrapper">
+          <span class="format-label">Format:</span>
+          <select id="format-select" aria-label="Select time format">
+            <option value="24" selected>24-hour</option>
+            <option value="12">12-hour (AM/PM)</option>
+          </select>
+        </div>
+
       </div>
 
-      <div class="clock-divider" aria-hidden="true"></div>
+      <div class="clock-divider"></div>
 
-      <!-- Full written date -->
       <div id="date" aria-label="Current date">Loading date...</div>
 
-      <!-- Time display -->
       <div id="clock" aria-label="Current time">00:00:00</div>
 
-      <!-- Footer with author + copyright -->
-      <footer class="clock-footer">
-        &copy; <span id="year"></span>
-        <a
-          href="https://github.com/Samson-Eniolorunda"
-          id="author-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Samson Eniolorunda
-        </a>
-        . All rights reserved.
-      </footer>
     </main>
 
-    <!-- Main script -->
-    <script src="/assets/js/script.js"></script>
+    <!-- FOOTER -->
+    <footer class="clock-footer">
+      &copy; <span id="year"></span>
+      <a
+        href="https://github.com/Samson-Eniolorunda"
+        id="author-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Samson Eniolorunda
+      </a>
+      . All rights reserved.
+    </footer>
+
+    <!-- Script -->
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
