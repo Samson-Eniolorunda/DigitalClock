@@ -38,6 +38,10 @@ body {
   color: var(--date-color);
 }
 
+/* ================================
+   CLOCK COMPONENT STYLES
+   ================================ */
+
 /* Clock Title */
 .clock-title {
   font-family: "orbitron", sans-serif;
@@ -124,6 +128,10 @@ body {
   transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
+/* ================================
+   INTERACTIONS & HOVER EFFECTS
+   ================================ */
+
 /* Hover Effects */
 #timezone-select:hover,
 #format-select:hover {
@@ -140,13 +148,156 @@ body {
   text-shadow: 0 0 8px rgba(0, 200, 255, 0.6);
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-  .clock-container { padding: 20px; }
-  .clock-title { font-size: 20px; letter-spacing: 3px; }
-  #clock { font-size: 40px; letter-spacing: 4px; }
-  #date { font-size: 14px; }
+/* ================================
+  RESPONSIVE STYLES
+   ================================ */
+
+/* ========== LARGE DESKTOP (1440px and up) ========== */
+@media (min-width: 1440px) {
+  .clock-container {
+    max-width: 600px;
+    padding: 40px 60px;
+  }
+
+  #clock {
+    font-size: 64px;
+    letter-spacing: 8px;
+  }
+
+  .clock-title {
+    font-size: 42px;
+  }
 }
+
+/* ========== DESKTOP & LAPTOP (1024px to 1439px) ========== */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .clock-container {
+    max-width: 550px;
+    padding: 35px 50px;
+  }
+
+  #clock {
+    font-size: 56px;
+  }
+
+  .clock-title {
+    font-size: 36px;
+  }
+}
+
+/* ========== TABLET (768px to 1023px) ========== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .clock-container {
+    max-width: 500px;
+    padding: 30px 40px;
+  }
+
+  .clock-title {
+    font-size: 30px;
+  }
+
+  #clock {
+    font-size: 48px;
+  }
+
+  .control-label {
+    font-size: 1rem;
+  }
+}
+
+/* ========== SMALL TABLET (600px to 767px) ========== */
+@media (min-width: 600px) and (max-width: 767px) {
+  .clock-container {
+    padding: 22px 28px;
+  }
+
+  .clock-title {
+    font-size: 26px;
+    letter-spacing: 3px;
+  }
+
+  #clock {
+    font-size: 42px;
+  }
+}
+
+/* ========== LARGE MOBILE (400px to 599px) ========== */
+@media (min-width: 400px) and (max-width: 599px) {
+  body {
+    padding: 0 12px;
+  }
+
+  .clock-container {
+    padding: 16px 16px 20px;
+  }
+
+  .clock-title {
+    font-size: 22px;
+  }
+
+  .controls-block {
+    width: 100%;
+  }
+
+  .control-row {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .control-label {
+    min-width: 70px;
+    font-size: 0.9rem;
+  }
+
+  #timezone-select,
+  #format-select {
+    flex: 1;
+    font-size: 0.9rem;
+  }
+
+  #clock {
+    font-size: 34px;
+  }
+
+  #date {
+    font-size: 13px;
+  }
+}
+
+/* ========== SMALL MOBILE (up to 399px) ========== */
+@media (max-width: 399px) {
+  .clock-container {
+    padding: 14px;
+  }
+
+  .clock-title {
+    font-size: 20px;
+  }
+
+  .control-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  #timezone-select,
+  #format-select {
+    width: 100%;
+  }
+
+  #clock {
+    font-size: 30px;
+    letter-spacing: 3px;
+  }
+
+  #date {
+    font-size: 12px;
+  }
+}
+
+/* ================================
+   ANIMATIONS & Scrollbar
+   ================================ */
 
 /* Pop-in Animation */
 @keyframes popIn {
@@ -167,7 +318,9 @@ body {
   background: var(--digit-hover);
 }
 
-/* Footer */
+/* ================================
+   FOOTER STYLES
+   ================================ */
 .clock-footer {
   margin-top: 20px;
   font-size: 1rem;
