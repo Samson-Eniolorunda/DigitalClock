@@ -1,16 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Digital Clock</title>
-  <link rel="stylesheet" href="/assets/style.css">
-</head>
-<body>
-  <div class="clock-container">
-    <h1>Digital Clock</h1>
-    <div id="clock">00:00:00</div>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <script src="/assets/script.js"></script>
-</body>
+    <!-- Page Title -->
+    <title>Digital Clock</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <!-- Google Font: Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <!-- Start with theme-1 -->
+  <body class="theme-1">
+    <main class="clock-container" aria-label="Digital clock with date">
+      <h1 class="clock-title">Digital Clock</h1>
+
+      <!-- Timezone selector -->
+      <div class="timezone-wrapper">
+        <span class="timezone-label">Timezone:</span>
+        <select id="timezone-select" aria-label="Select timezone">
+          <option value="local">Local System Time</option>
+          <option value="Africa/Lagos">Africa / Lagos</option>
+          <option value="Europe/London">Europe / London</option>
+          <option value="America/New_York">America / New York</option>
+          <option value="Europe/Paris">Europe / Paris</option>
+          <option value="Asia/Tokyo">Asia / Tokyo</option>
+          <option value="Asia/Dubai">Asia / Dubai</option>
+        </select>
+      </div>
+
+      <div class="clock-divider" aria-hidden="true"></div>
+
+      <!-- Full written date -->
+      <div id="date" aria-label="Current date">Loading date...</div>
+
+      <!-- Time display -->
+      <div id="clock" aria-label="Current time">00:00:00</div>
+
+      <!-- Footer with author + copyright -->
+      <footer class="clock-footer">
+        &copy; <span id="year"></span>
+        <a
+          href="https://github.com/Samson-Eniolorunda"
+          id="author-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Samson Eniolorunda
+        </a>
+        . All rights reserved.
+      </footer>
+    </main>
+
+    <!-- Main script -->
+    <script src="assets/script.js"></script>
+  </body>
 </html>

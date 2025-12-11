@@ -1,0 +1,107 @@
+/* ================================
+   DIGITAL CLOCK - STYLESHEET
+   ================================ */
+
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  background: radial-gradient(circle at top, #00bcd4 0%, #000000 55%, #111111 100%);
+  color: #fefefe;
+}
+
+/* Clock container */
+.clock-container {
+  text-align: center;
+  padding: 30px 50px;
+  border-radius: 20px;
+  background: #000000;
+  border: 2px solid #ffc107; /* yellow border */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  max-width: 480px;
+  width: 90%;
+}
+
+/* Title */
+.clock-title {
+  margin-bottom: 15px;
+  font-size: 24px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #ffc107; /* yellow */
+  text-shadow: 0 0 8px rgba(255, 193, 7, 0.8);
+}
+
+/* Date display */
+#date {
+  margin-bottom: 15px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #e0f7fa; /* soft teal that works with black/yellow */
+  text-shadow: 0 0 6px rgba(0, 188, 212, 0.7);
+}
+
+/* Time display */
+#clock {
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: #ffeb3b; /* bright yellow for digits */
+  text-shadow:
+    0 0 10px rgba(255, 235, 59, 0.9),
+    0 0 20px rgba(255, 235, 59, 0.7),
+    0 0 30px rgba(255, 235, 59, 0.5);
+  transition: transform 0.15s ease, text-shadow 0.15s ease;
+}
+
+/* Hover & active effects for a subtle interaction */
+.clock-container:hover #clock {
+  transform: scale(1.03);
+  text-shadow:
+    0 0 12px rgba(255, 235, 59, 1),
+    0 0 26px rgba(255, 193, 7, 0.8),
+    0 0 40px rgba(255, 193, 7, 0.6);
+}
+
+/* Small decorative line */
+.clock-divider {
+  width: 60px;
+  height: 3px;
+  margin: 0 auto 15px auto;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffc107, #00bcd4);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .clock-container {
+    padding: 20px 25px;
+  }
+
+  .clock-title {
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+
+  #date {
+    font-size: 14px;
+  }
+
+  #clock {
+    font-size: 40px;
+    letter-spacing: 4px;
+  }
+}
