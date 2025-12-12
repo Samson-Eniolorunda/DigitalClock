@@ -1,6 +1,6 @@
 // ================================
 // DIGITAL CLOCK - SCRIPT
-// Region-grouped timezones + DST + Friendly Device Label + UTC Prefix
+// Region-grouped Timezones + Format + DST + Friendly Device Label + UTC Prefix
 // ================================
 
 //----------------------------------------------
@@ -10,16 +10,15 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   // ---------- VARIABLES & ELEMENTS ----------
-
-  // State variables 
   let selectedTimeZone = "device";
   let is24Hour = true;
-  // DOM elements 
+
   const clockEl = document.getElementById("clock");
   const dateEl = document.getElementById("date");
   const yearEl = document.getElementById("year");
   const timeZoneSelect = document.getElementById("timezone-select");
   const formatSelect = document.getElementById("format-select");
+  const preloaderEl = document.getElementById("preloader");
 
   // Set current year in footer 
   if (yearEl) {
@@ -391,7 +390,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Initial clock and date update, then every second
+  // Initial clock update and start interval
   updateClockAndDate();
   setInterval(updateClockAndDate, 1000);
+
+  // Hide preloader after brief delay
+  if (preloaderEl) {
+
+    // Delay to allow preloader animation to complete
+    setTimeout(() => {
+      preloaderEl.classList.add("preloader-hide");
+    }, 400);
+  }
 });
