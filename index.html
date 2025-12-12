@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    
+
     <title>Digital Clock</title>
 
     <!-- Favicon -->
@@ -13,11 +13,16 @@
     <!-- Google Font: Orbitron (Clock Display) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet" />
-
-    <!-- Google Font: Poppins (Selectors) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google Font: Poppins (Selectors & Footer) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -26,22 +31,22 @@
   <body>
     <!-- TITLE -->
     <h1 class="clock-title">Digital Clock</h1>
-    
+
     <!-- CLOCK CONTAINER -->
-    <main class="clock-container" aria-label="Digital clock with date">
+    <main class="clock-container" aria-label="Digital clock with date and time">
 
-      <!-- TIMEZONE + FORMAT-->
-      <div class="controls-row">
+      <!-- CONTROLS: TIME ZONE + FORMAT -->
+      <div class="controls-block">
 
-        <div class="timezone-wrapper">
-          <span class="timezone-label">Timezone:</span>
-          <select id="timezone-select" aria-label="Select timezone">
-            <option value="local">Local System Time</option>
+        <div class="control-row">
+          <span class="control-label">Time Zone:</span>
+          <select id="timezone-select" aria-label="Select time zone">
+            <!-- JS will populate: Device Time + grouped zones -->
           </select>
         </div>
 
-        <div class="format-wrapper">
-          <span class="format-label">Format:</span>
+        <div class="control-row">
+          <span class="control-label">Format:</span>
           <select id="format-select" aria-label="Select time format">
             <option value="24" selected>24-hour</option>
             <option value="12">12-hour (AM/PM)</option>
@@ -50,10 +55,14 @@
 
       </div>
 
+      <!-- DIVIDER -->
       <div class="clock-divider"></div>
 
+      <!-- DATE & TIME DISPLAY -->
+      <!-- Date -->
       <div id="date" aria-label="Current date">Loading date...</div>
 
+      <!-- Time -->
       <div id="clock" aria-label="Current time">00:00:00</div>
 
     </main>

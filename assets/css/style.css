@@ -44,13 +44,14 @@ body {
 
 /* Clock Title */
 .clock-title {
-  font-family: "orbitron", sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-weight: 900;
   font-size: 36px;
   margin-bottom: 12px;
   letter-spacing: 4px;
   color: var(--title-color);
   text-transform: uppercase;
+  text-align: center;
 }
 
 /* Clock Container */
@@ -61,26 +62,25 @@ body {
   border-radius: 20px;
   background: var(--card-bg);
   border: 2px solid var(--border-color);
-  max-width: 530px;
-  width: 100%;
+  max-width: 1500px;
   overflow: hidden;
   animation: popIn 0.6s ease-out;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-/* Controls Row */
-.controls-row {
+
+.controls-block {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
   margin-bottom: 10px;
 }
 
-/* Timezone and Format Wrappers */
-.timezone-wrapper,
-.format-wrapper {
+
+.control-row {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -89,9 +89,17 @@ body {
   color: var(--date-color);
 }
 
-/* Select Dropdowns */
+
+.control-label {
+  min-width: 90px;
+  text-align: left;
+}
+
+
 #timezone-select,
 #format-select {
+  flex: 1;
+  min-width: 0;
   padding: 4px 8px;
   border-radius: 8px;
   border: 1px solid var(--border-color);
@@ -106,10 +114,10 @@ body {
 
 /* Divider */
 .clock-divider {
-  width: 60px;
+  width: 30px;
   height: 3px;
   margin: 15px auto;
-  border-radius: 1000px;
+  border-radius: 100%;
   background: var(--border-color);
 }
 
@@ -122,10 +130,12 @@ body {
 
 /* Clock Display */
 #clock {
-  font-size: 52px;
+  font-size: 50px;
   letter-spacing: 6px;
   color: var(--digit-color);
-  transition: color 0.25s ease, text-shadow 0.25s ease;
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease;
 }
 
 /* ================================
@@ -143,135 +153,166 @@ body {
   border-color: var(--digit-hover);
   box-shadow: 0 0 18px rgba(0, 200, 255, 0.35);
 }
+
 .clock-container:hover #clock {
   color: var(--digit-hover);
-  text-shadow: 0 0 8px rgba(0, 200, 255, 0.6);
+  text-shadow:
+    0 0 8px rgba(0, 200, 255, 0.6),
+    0 0 18px rgba(0, 200, 255, 0.35);
 }
 
 /* ================================
-  RESPONSIVE STYLES
+   RESPONSIVE STYLES
    ================================ */
 
-/* ========== LARGE DESKTOP (1440px and up) ========== */
+/* LARGE DESKTOP (1440px and up) */
 @media (min-width: 1440px) {
   .clock-container {
-    max-width: 600px;
+    max-width: 800px;
     padding: 40px 60px;
   }
 
   #clock {
-    font-size: 64px;
+    font-size: 80px;
     letter-spacing: 8px;
   }
 
   .clock-title {
-    font-size: 42px;
+    font-size: 48px;
   }
 }
 
-/* ========== DESKTOP & LAPTOP (1024px to 1439px) ========== */
+/* DESKTOP & LAPTOP (1024px to 1439px) */
 @media (min-width: 1024px) and (max-width: 1439px) {
   .clock-container {
-    max-width: 550px;
-    padding: 35px 50px;
+    max-width: 700px;
+    padding: 30px 50px;
   }
 
   #clock {
-    font-size: 56px;
+    font-size: 60px;
+    letter-spacing: 7px;
+  }
+
+  .clock-title {
+    font-size: 44px;
+  }
+}
+
+/* TABLET (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .clock-container {
+    max-width: 600px;
+    padding: 20px 40px;
+  }
+
+  #clock {
+    font-size: 50px;
+    letter-spacing: 5px;
   }
 
   .clock-title {
     font-size: 36px;
   }
-}
 
-/* ========== TABLET (768px to 1023px) ========== */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .clock-container {
-    max-width: 500px;
-    padding: 30px 40px;
-  }
-
-  .clock-title {
-    font-size: 30px;
-  }
-
-  #clock {
-    font-size: 48px;
-  }
-
-  .control-label {
-    font-size: 1rem;
-  }
-}
-
-/* ========== SMALL TABLET (600px to 767px) ========== */
-@media (min-width: 600px) and (max-width: 767px) {
-  .clock-container {
-    padding: 22px 28px;
-  }
-
-  .clock-title {
-    font-size: 26px;
-    letter-spacing: 3px;
-  }
-
-  #clock {
-    font-size: 42px;
-  }
-}
-
-/* ========== LARGE MOBILE (400px to 599px) ========== */
-@media (min-width: 400px) and (max-width: 599px) {
-  body {
-    padding: 0 12px;
-  }
-
-  .clock-container {
-    padding: 16px 16px 20px;
-  }
-
-  .clock-title {
-    font-size: 22px;
-  }
-
-  .controls-block {
-    width: 100%;
+  #date {
+    font-size: 16px;
   }
 
   .control-row {
-    width: 100%;
-    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  #timezone-select,
+  #format-select {
+    width: auto;
+  }
+}
+
+/* SMALL TABLET (600px to 767px) */
+@media (min-width: 600px) and (max-width: 767px) {
+  .clock-container {
+    max-width: 500px;
+    padding: 18px 30px;
   }
 
-  .control-label {
-    min-width: 70px;
-    font-size: 0.9rem;
+  #clock {
+    font-size: 40px;
+    letter-spacing: 4px;
+  }
+  
+  .clock-title {
+    font-size: 28px;
+  }
+
+  #date {
+    font-size: 15px;
+  }
+
+  .control-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 
   #timezone-select,
   #format-select {
-    flex: 1;
-    font-size: 0.9rem;
-  }
-
-  #clock {
-    font-size: 34px;
-  }
-
-  #date {
-    font-size: 13px;
+    width: 100%;
   }
 }
 
-/* ========== SMALL MOBILE (up to 399px) ========== */
+/* LARGE MOBILE (400px to 599px) */
+@media (min-width: 400px) and (max-width: 599px) {
+  .clock-container {
+    max-width: 400px;
+    padding: 16px 24px;
+  }
+
+   #clock {
+    font-size: 35px;
+    letter-spacing: 4px;
+  }
+  
+  .clock-title {
+    font-size: 24px;
+  }
+
+  #date {
+    font-size: 14px;
+  }
+
+  .control-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  #timezone-select,
+  #format-select {
+    width: 100%;
+  }
+}
+
+/* SMALL MOBILE (up to 399px) */
 @media (max-width: 399px) {
   .clock-container {
-    padding: 14px;
+    max-width: 300px;
+    padding: 14px 20px;
+  }
+
+   #clock {
+    font-size: 30px;
+    letter-spacing: 3px;
   }
 
   .clock-title {
     font-size: 20px;
+  }
+
+  #date {
+    font-size: 12px;
   }
 
   .control-row {
@@ -284,29 +325,29 @@ body {
   #format-select {
     width: 100%;
   }
-
-  #clock {
-    font-size: 30px;
-    letter-spacing: 3px;
-  }
-
-  #date {
-    font-size: 12px;
-  }
 }
 
 /* ================================
-   ANIMATIONS & Scrollbar
+   ANIMATIONS & SCROLLBAR
    ================================ */
 
 /* Pop-in Animation */
 @keyframes popIn {
-  0% { transform: scale(0.85); opacity: 0; }
-  60% { transform: scale(1.05); opacity: 1; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-/* Scrollbar Styling */
+/* Scrollbar Styling (for timezone dropdown) */
 #timezone-select::-webkit-scrollbar {
   width: 8px;
 }
@@ -321,11 +362,13 @@ body {
 /* ================================
    FOOTER STYLES
    ================================ */
+
 .clock-footer {
   margin-top: 20px;
   font-size: 1rem;
   color: var(--footer-text);
   font-family: "Poppins", sans-serif;
+  text-align: center;
 }
 .clock-footer a {
   color: var(--footer-link);
