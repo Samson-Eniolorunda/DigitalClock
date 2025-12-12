@@ -400,6 +400,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Delay to allow preloader animation to complete
     setTimeout(() => {
       preloaderEl.classList.add("preloader-hide");
-    }, 400);
+    }, 1000);
   }
 });
