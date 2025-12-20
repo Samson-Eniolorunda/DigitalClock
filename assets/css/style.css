@@ -127,7 +127,7 @@ body {
 
 .clock-container {
   margin: 0 auto;    
-  margin-bottom: auto;     
+  margin-bottom: 1rem;     
   position: relative; 
   text-align: center; 
   padding: 30px 50px;
@@ -475,7 +475,7 @@ body {
 
   .footer-inner p.copyright { 
     text-align: center; 
-    font-size: 0.8rem; 
+    font-size: 0.72rem; 
   }
 
   .footer-socials { 
