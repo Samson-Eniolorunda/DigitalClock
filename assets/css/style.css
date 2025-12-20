@@ -242,6 +242,59 @@ body {
 }
 
 /* ================================
+   FOOTER STYLES
+   ================================ */
+
+.clock-footer {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: var(--footer-text);
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+.clock-footer a {
+  color: var(--footer-link);
+  font-weight: 600;
+  text-decoration: none;
+}
+.clock-footer a:hover {
+  color: var(--footer-link-hover);
+}
+
+
+/* ================================
+   ANIMATIONS & SCROLLBAR
+   ================================ */
+
+/* Pop-in Animation */
+@keyframes popIn {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Scrollbar Styling (for timezone dropdown) */
+#timezone-select::-webkit-scrollbar {
+  width: 8px;
+}
+#timezone-select::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 999px;
+}
+#timezone-select::-webkit-scrollbar-thumb:hover {
+  background: var(--digit-hover);
+}
+
+/* ================================
    RESPONSIVE STYLES
    ================================ */
 
@@ -277,6 +330,7 @@ body {
   .clock-title {
     font-size: 44px;
   }
+
 }
 
 /* TABLET (768px to 1023px) */
@@ -359,6 +413,10 @@ body {
     font-size: 24px;
   }
 
+  .clock-footer {
+    font-size: 0.85rem; 
+  }
+
   #date {
     font-size: 14px;
   }
@@ -391,6 +449,11 @@ body {
     font-size: 20px;
   }
 
+  .clock-footer {
+    font-size: 0.6rem; 
+    margin-top: 15px; 
+  }
+  
   #date {
     font-size: 12px;
   }
@@ -406,6 +469,7 @@ body {
     width: 100%;
   }
 }
+
 
 /* ================================
    ANIMATIONS & SCROLLBAR
@@ -437,24 +501,4 @@ body {
 }
 #timezone-select::-webkit-scrollbar-thumb:hover {
   background: var(--digit-hover);
-}
-
-/* ================================
-   FOOTER STYLES
-   ================================ */
-
-.clock-footer {
-  margin-top: 20px;
-  font-size: 1rem;
-  color: var(--footer-text);
-  font-family: "Poppins", sans-serif;
-  text-align: center;
-}
-.clock-footer a {
-  color: var(--footer-link);
-  font-weight: 600;
-  text-decoration: none;
-}
-.clock-footer a:hover {
-  color: var(--footer-link-hover);
 }
