@@ -4,89 +4,72 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    
-    <!-- Title -->
+     <!-- Title -->
     <title>Digital Clock</title>
-
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
-
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
     <!-- Google Font: Orbitron (Clock Display) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
-      rel="stylesheet"
-    />
-
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet" />
     <!-- Google Font: Poppins (Selectors & Footer) -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+    <!-- Font-awesome social link icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <!-- Stylesheet -->   
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
 
   <body>
     <!-- PRELOADER -->
     <div id="preloader" aria-hidden="true">
-      <div class="preloader-ring">
-        <div class="preloader-dot"></div>
-      </div>
+      <div class="preloader-ring"><div class="preloader-dot"></div></div>
       <p class="preloader-text">Loading clock...</p>
     </div>
-
-    <!-- TITLE -->
+    <!-- Title -->
     <h1 class="clock-title">Digital Clock</h1>
-
-    <!-- CLOCK CONTAINER -->
-    <main class="clock-container" aria-label="Digital clock with date and time">
-
-      <!-- CONTROLS: TIME ZONE + FORMAT -->
+    <!-- Clock Container -->
+    <main class="clock-container" aria-label="Digital clock">
       <div class="controls-block">
-
         <div class="control-row">
           <span class="control-label">Time Zone:</span>
-          <select id="timezone-select" aria-label="Select time zone">
-            <!-- JS will populate: Device Time + grouped zones -->
-          </select>
+          <select id="timezone-select"></select>
         </div>
-
         <div class="control-row">
           <span class="control-label">Format:</span>
-          <select id="format-select" aria-label="Select time format">
+          <select id="format-select">
             <option value="24" selected>24-hour</option>
             <option value="12">12-hour (AM/PM)</option>
           </select>
         </div>
+      </div>
+      <!-- Divider -->
+      <div class="clock-divider"></div>
+      <div id="date">Loading date...</div>
+      <div id="clock">00:00:00</div>
+    </main>
+    <!-- Footer -->
+    <footer class="clock-footer">
+      <div class="footer-inner">
+        
+        <p class="copyright">
+          &copy; <span id="year"></span> Samson Eniolorunda. All rights reserved.
+        </p>
+        <!-- Social link icon -->
+        <div class="footer-socials">
+          <a href="https://linkedin.com/in/samson-eniolorunda" target="_blank" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/Samson-Eniolorunda" target="_blank" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://x.com/s_eniolorunda_" target="_blank" aria-label="X (Twitter)">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </div>
 
       </div>
-
-      <!-- DIVIDER -->
-      <div class="clock-divider"></div>
-
-      <!-- DATE & TIME DISPLAY -->
-      <div id="date" aria-label="Current date">Loading date...</div>
-      <div id="clock" aria-label="Current time">00:00:00</div>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="clock-footer">
-      &copy; <span id="year"></span>
-      <a
-        href="https://github.com/Samson-Eniolorunda/DigitalClock"
-        id="author-link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Samson Eniolorunda
-      </a>
-      . All rights reserved.
     </footer>
-
     <!-- Script -->
     <script src="assets/js/script.js"></script>
   </body>
