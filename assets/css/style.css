@@ -117,8 +117,7 @@ body {
   font-family: "Orbitron", sans-serif; 
   font-weight: 900;
   font-size: 36px; 
-  margin-top: 6rem;
-  margin-bottom: -2rem; 
+  margin-top: 5rem;
   letter-spacing: 4px;
   color: var(--title-color); 
   text-transform: uppercase; 
